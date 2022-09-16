@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div style="text-align:center">
+    <h1>Date formatting</h1>
+    <div>
+        <p>
+            Date : <span id="numb">22</span>
+        </p>
+        <p>
+            Date : <span id="strdate"></span>
+        </p>
+        <p>
+            NewDate : <span id="crtdate"></span>
+        </p>
+        <p>
+            Parsed date : <span id="parsedate"></span>
+        </p>
+
+    </div>
+</div>
+
+
+<script>
+    function parseTime(timerStop1){
+        const  timef = timerStop1.split(":");
+        return (60 * timef[1]) + (3600 * timef[0]);
+    }
+
+    const value = document.getElementById('numb');
+    const dateValue = document.getElementById('strdate');
+    const crtDateValue = document.getElementById('crtdate');
+
+    dateValue.innerHTML = value.innerHTML;
+
+
+    const dateAsStr = new Date(2011, 07, 30).toISOString();
+    // const dateValue = new Date(2011, 07, 30);
+    // 0, 10 date
+    // 11, 16 time
+    // 0, 16 date time
+
+    crtDateValue.innerHTML = dateAsStr.slice(0, 16);
+
+    const parsedate = document.getElementById('parsedate');
+    parsedate.innerHTML = parseTime(`22:04`);
+    // 1580589120000
+
+
+
+
+
+    // console.log(value.innerHTML);
+</script>
+</body>
+</html>
