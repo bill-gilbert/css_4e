@@ -15,20 +15,44 @@
 <body>
 
 
-<img id="firstPhoto" src=""
-     alt="альтернативный текст">
+<img id="firstPhoto" src="arrow.jpg" alt="альтернативный текст">
 
-<button onclick="rotateImage()"> Rotate </button>
+<button onclick="rotateImageLeft()"> Rotate Left</button>
+<button onclick="rotateImageRight()"> Rotate Right </button>
+<button onclick="reset()"> Reset </button>
+
 <button onclick=""> Increase </button>
 <button onclick=""> Decrease </button>
 
 </body>
 <script>
     let angle = 0;
-
-    function rotateImage(){
+    function render() {
         const img = document.getElementById("firstPhoto");
         img.classList.add("rotate-img");
+        img.style.transform = `rotate(${angle}deg)`;
+    }
+    function reset() {
+        angle = 0;
+        render();
+    }
+    function rotateImageRight(){
+        if (angle >= 270) {
+            angle = 0;
+        } else {
+            angle += 90;
+        }
+        console.log(angle);
+        render();
+    }
+    function rotateImageLeft(){
+        if (angle <= 0) {
+            angle = 270;
+        } else {
+            angle -= 90;
+        }
+        console.log(angle);
+        render();
     }
 </script>
 
