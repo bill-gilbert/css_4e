@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        summary {
+            display: block;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        summary .marker {
+            display: inline-block;
+            padding-right: 0.5em;
+        }
+
+        details[open] .marker {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+    <details open>
+        <summary>
+            Лицензионное соглашение
+        </summary>
+        blah blah blah
+    </details>
+</body>
+</html>
