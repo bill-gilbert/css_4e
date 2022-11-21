@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .rotate-img {
+            -webkit-transform : rotate(90deg) ; /* Chrome, Opera 15+, Safari 3.1+ */
+            -ms-transform     : rotate(90deg) ; /* IE 9 */
+            transform         : rotate(90deg) ; /* Firefox 16+, IE 10+, Opera */
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+
+<img id="firstPhoto" src="arrow.jpg" alt="альтернативный текст">
+
+<button onclick="rotateImageLeft()"> Rotate Left</button>
+<button onclick="rotateImageRight()"> Rotate Right </button>
+<button onclick="reset()"> Reset </button>
+
+<button onclick=""> Increase </button>
+<button onclick=""> Decrease </button>
+
+</body>
+<script>
+    let angle = 0;
+    function render() {
+        const img = document.getElementById("firstPhoto");
+        img.classList.add("rotate-img");
+        img.style.transform = `rotate(${angle}deg)`;
+    }
+    function reset() {
+        angle = 0;
+        render();
+    }
+    function rotateImageRight(){
+        if (angle >= 270) {
+            angle = 0;
+        } else {
+            angle += 90;
+        }
+        console.log(angle);
+        render();
+    }
+    function rotateImageLeft(){
+        if (angle <= 0) {
+            angle = 270;
+        } else {
+            angle -= 90;
+        }
+        console.log(angle);
+        render();
+    }
+</script>
+
+</html>
