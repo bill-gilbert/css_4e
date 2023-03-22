@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test moment JS</title>
+</head>
+<body>
+    <button onclick="checkMoment()">Click me</button>
+
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+
+
+<a href="home.html">
+    <span><img style="display: inline; margin: 0 0.125em; padding: 0; vertical-align: bottom;" src="images/mycard.png" alt="home page icon"></span>
+    <span>Go to the home page</span>
+</a>
+
+<a href="home.html">
+    <span><img style="display: inline; margin: 0 0.125em; padding: 0; vertical-align: bottom;" src="images/forgotpassword.png" alt="home page icon"></span>
+    <span>Forgot password</span>
+</a>
+
+<a href="http://www.website.com" title="Website name"><i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-home icon-4x"></i>Website Link</a>
+
+<script>
+    function checkMoment() {
+        const stringValue2 = '2020-05-12T19:08:55.515';
+        let date2 = moment.utc(stringValue2).local();
+        console.log("date2", date2.format('DD/MM/YYYY HH:mm:ss'));
+    }
+
+    function doSmth() {
+        console.log("Hello");
+    }
+
+    doSmth();
+
+</script>
+</html>

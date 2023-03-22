@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coloured digit list</title>
+    <style>
+        ul li {
+            list-style-type: none;
+        }
+
+        ul li:before {
+            content: counter(item, disc) " ";
+            color: red;
+        }
+
+        ol li {
+            list-style-type: none;
+            counter-increment: item;
+        }
+
+        ol li:before {
+            content: counter(item) ". ";
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+    <li>Four</li>
+</ul>
+<ol>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+    <li>Four</li>
+</ol>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+#articles p {
+    color: red;
+    font-size: 1.5em;
+    text-indent: 20px;
+}
+
+#articles .special {
+    color: blue;
+}

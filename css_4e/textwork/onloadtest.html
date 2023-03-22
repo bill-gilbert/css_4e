@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test moment JS</title>
+</head>
+<body>
+<p id="mycardInfo">
+    Not hello
+</p>
+</body>
+<script>
+    function sayHello() {
+        var element = document.getElementById("mycardInfo");
+        element.innerHTML = "Hello World. from windows"
+    }
+
+    window.onload = function () {
+        sayHello();
+    }
+</script>
+</html>

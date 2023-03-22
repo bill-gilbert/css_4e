@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Проверка конфига</title>
+</head>
+<body>
+<h1>Проверка конфига</h1>
+<div id="minYear">
+</div>
+<div id="maxYear">
+</div>
+
+<script>
+    let recipeMap = new Map([
+        ["огурец", 500],
+        ["помидор", 350],
+        ["лук",    50]
+    ]);
+
+    recipeMap["баклажан"] = 1000;
+    recipeMap.forEach((value, key, map) => {
+        console.log(`${key}: ${value}`); // огурец: 500 и так далее
+    });
+
+    let a = undefined;
+    if (a) {
+        console.log("undefined")
+    }
+    a = null;
+    if (a) {
+        console.log("null")
+    }
+
+    a = "";
+    if (a) {
+        console.log("empty")
+    }
+
+    a = " ";
+    if (a) {
+        console.log("not empty")
+    }
+
+    a = 12345;
+    console.log(typeof a);
+
+    a = "12345";
+    console.log(typeof a);
+
+    const config = {
+        minYear: function () {
+            return 1753;
+        },
+        maxYear: function () {
+            return new Date().getFullYear()
+        },
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('minYear').innerHTML = String(config.minYear());
+        document.getElementById('maxYear').innerHTML = String(config.maxYear());
+    });
+</script>
+</body>
+</html>

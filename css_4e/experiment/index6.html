@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Подписка на рассылку сайта CosmoFarmer.com</title>
+  </head>
+  <body>
+    <h1>Подписка на нашу электронную рассылку</h1>
+    <script>
+      let menu = {
+        width: 200,
+        height: 300,
+        title: 'My menu',
+        secret: {
+          password: 'god111',
+        },
+      };
+
+      function checkProp(obj, path) {
+        if (path.includes(`.`)) {
+          console.log(path.split(`.`));
+        }
+        return obj.hasOwnProperty(path);
+      }
+
+      console.log(checkProp(menu, 'title'));
+      console.log(checkProp(menu, 'carrot'));
+      console.log(checkProp(menu, 'secret.password'));
+      console.log(menu.secret.password);
+
+      function processStr(str, maxLength) {
+        let char = str[0];
+        let sameChar = 1;
+        let result = [char];
+        for (let i = 1; i < str.length; i++) {
+          if (char === str[i]) {
+            ++sameChar;
+            if (sameChar <= maxLength) {
+              result.push(str[i]);
+            }
+          } else {
+            char = str[i];
+            sameChar = 1;
+            result.push(str[i]);
+          }
+        }
+
+        console.log(result.join(''));
+      }
+
+      processStr('Heeeeeellllloooooo,,,,,,,WWWWWWWooooooorrrrrrrllllldddd', 1);
+      processStr('Heeeeeellllloooooo,,,,,,,WWWWWWWooooooorrrrrrrllllldddd', 2);
+      processStr('Heeeeeellllloooooo,,,,,,,WWWWWWWooooooorrrrrrrllllldddd', 4);
+      processStr('xxxaaxx', 1);
+      class Hello {}
+      let c = new Hello();
+      console.error(typeof c);
+    </script>
+  </body>
+</html>

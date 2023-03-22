@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<input lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .rotatedDiv {
+            color: #002D4B;
+            background-color: #AFC3D6;
+            width: 150px;
+        }
+
+        .rotatedDiv:hover {
+            transform: skew(25deg, 15deg);
+            -moz-transform: skew(25deg, 15deg);
+        }
+
+        .mybutton {
+            background-color: orange;
+            transition-property: background-color;
+            transition-duration: 5ms;
+            transition-delay: 1ms;
+            width: 100px;
+        }
+
+        .mybutton:hover {
+            background-color: blue;
+        }
+
+    </style>
+</head>
+<body>
+<p class="rotatedDiv">
+    Some text
+</p>
+
+<div class="mybutton"> Hello World</div>
+</body>
+</html>
+
