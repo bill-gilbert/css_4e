@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function camelize(item) {
+        if (!item) {
+            return "";
+        }
+
+        return item.split("-").map((word, index) => index === 0 ? word : word[0].toUpperCase() + word.slice(1)).join("");
+    }
+
+    function testCamelize(item) {
+        console.log(camelize(item))
+    }
+
+    testCamelize("background-color")
+    testCamelize("list-style-image")
+    testCamelize("-webkit-transition")
+</script>
+<body>
+
+</body>
+</html>

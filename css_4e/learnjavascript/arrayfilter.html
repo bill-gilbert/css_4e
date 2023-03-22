@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function filterRange(arr, min, max) {
+        if (!arr) {
+            return [];
+        }
+        return arr.filter(item => (item >= min && item <= max));
+    }
+
+    let arr = [5, 3, 8, 1];
+    let filtered = filterRange(arr, 1, 4);
+
+    console.log(filtered)
+    console.log(arr)
+</script>
+<body>
+
+</body>
+</html>
