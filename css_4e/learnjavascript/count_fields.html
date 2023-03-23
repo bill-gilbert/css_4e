@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function countKeys(salaries) {
+        let count = 0;
+        for (let item of Object.keys(salaries)) {
+            ++count;
+        }
+
+        return count;
+    }
+
+    function countKeys2(salaries) {
+        return Object.keys(salaries).reduce((a) => ++a, 0);
+    }
+
+
+    function countKeys3(salaries) {
+        return Object.keys(salaries).length;
+    }
+
+    function testCountKeys(item) {
+        console.log(`Sum salaries ${countKeys(item)}`)
+    }
+
+    function testCountKeys2(item) {
+        console.log(`Sum salaries2 ${countKeys2(item)}`)
+    }
+
+    function testCountKeys3(item) {
+        console.log(`Sum salaries3 ${countKeys3(item)}`)
+    }
+
+    testCountKeys({Ivan: 100, Pavel: 50})
+    testCountKeys({Ivan: 100})
+    testCountKeys({Ivan: 100, Marc: 75, Pavel: 99})
+
+    testCountKeys2({Ivan: 100})
+    testCountKeys2({Ivan: 100, Igor: 10})
+    testCountKeys2({Ivan: 100, Marc: 75, Pavel: 50})
+
+    testCountKeys3({Ivan: 100})
+    testCountKeys3({Ivan: 100, Igor: 10})
+    testCountKeys3({Ivan: 100, Marc: 75, Pavel: 50})
+</script>
+<body>
+
+</body>
+</html>
