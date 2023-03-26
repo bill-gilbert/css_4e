@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function counter() {
+        let count = 0;
+        return function () {
+            return ++count;
+        }
+    }
+
+    const count = counter();
+    const count2 = counter();
+
+    function testCounter (param) {
+        console.log(param)
+    }
+
+    testCounter(count())
+    testCounter(count2())
+    testCounter(count())
+    testCounter(count2())
+
+</script>
+<body>
+
+</body>
+</html>
