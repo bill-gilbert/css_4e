@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <script>
+    const x1 = 436, y1 = 260, angle1 = 156;
+    const x2 = 72, y2 = 540, angle2 = 75;
+
     function xsect(x0, y0, a0, x1, y1, a1) {
         toRad = Math.PI / 180
         if ((((a0-a1) % 180) + 180) % 180 === 0) throw parallelError
@@ -48,10 +51,8 @@
         l3.innerHTML=((xl1+xl2)/2).toFixed(5)
 
     }
-    console.log(xsect(3,2,45, 11, 2, 135))
-    calculate(3,2,45, 11, 2, 135);
-
-
+    console.log(xsect(x1, y1, angle1, x2, y2, angle2))
+    calculate(x1, y1, angle1, x2, y2, angle2);
 </script>
 <body>
     <div id="xn"></div>
