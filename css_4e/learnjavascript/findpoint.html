@@ -5,61 +5,92 @@
     <title>Title</title>
 </head>
 <script>
-    const x1 = 436, y1 = 260, angle1 = 156;
-    const x2 = 72, y2 = 540, angle2 = 75;
+    //first data
+    // const x1 = 436, y1 = 260, angle1 = 156;
+    // const x2 = 72, y2 = 540, angle2 = 75;
 
-    function xsect(x0, y0, a0, x1, y1, a1) {
-        toRad = Math.PI / 180
-        if ((((a0-a1) % 180) + 180) % 180 === 0) throw parallelError
-        if (((a0 % 180) + 180) % 180 === 90) {
-            // vertical line at x = x0
-            return [x0, Math.tan(a1*toRad) * (x0-x1) + y1]
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const x1 = 20, y1 = 100, angle1 = 135;
+        const x2 = 90, y2 = 120, angle2 = 45;
+
+        // Первый метод
+        function xsect(x0, y0, a0, x1, y1, a1) {
+            toRad = Math.PI / 180
+            if ((((a0 - a1) % 180) + 180) % 180 === 0) throw parallelError
+            if (((a0 % 180) + 180) % 180 === 90) {
+                // vertical line at x = x0
+                console.log(`if (((a0 % 180) + 180) % 180 === 90)`)
+                return [x0, Math.tan(a1 * toRad) * (x0 - x1) + y1]
+            } else if (((a1 % 180) + 180) % 180 === 90) {
+                // vertical line at x = x0
+                console.log(`if (((a1 % 180) + 180) % 180 === 90)`)
+                return [x1, Math.tan(a0 * toRad) * (x1 - x0) + y0]
+            }
+            console.log(`another res`)
+            let m0 = Math.tan(a0 * toRad) // Line 0: y = m0 (x - x0) + y0
+            let m1 = Math.tan(a1 * toRad) // Line 1: y = m1 (x - x1) + y1
+            let x = ((m0 * x0 - m1 * x1) - (y0 - y1)) / (m0 - m1)
+            return [x, m0 * (x - x0) + y0]
         }
-        else if (((a1 % 180) + 180) % 180 === 90) {
-            // vertical line at x = x0
-            return [x1, Math.tan(a0*toRad) * (x1-x0) + y0]
+
+        // Второй метод
+        function calculate(x1, y1, u1, x2, y2, u2) {
+            X1 = x1;
+            Y1 = y1;
+            X2 = x2;
+            Y2 = y2;
+            tan1 = u1;
+            tan2 = u2;
+            tan1 = tan1 * 0.017453;
+            tan1 = Math.tan(tan1);
+            tan2 = tan2 * 0.017453;
+            tan2 = Math.tan(tan2);
+            XXX = (Y2 - Y1 + X1 * tan1 - X2 * tan2) / (tan1 - tan2);
+            YYY = Y1 - X1 * tan1 + XXX * tan1;
+            console.log(`Y= ${YYY.toFixed(5)}`);
+
+            const xDiv = document.getElementById("x2");
+            xDiv.innerHTML = XXX.toFixed(5)
+
+            const yDiv = document.getElementById("y2");
+            yDiv.innerHTML = YYY.toFixed(5)
+
+            xl1 = (X1 - XXX) * (X1 - XXX) + (Y1 - YYY) * (Y1 - YYY)
+            xl1 = Math.sqrt(xl1)
+            const l1 = document.getElementById("l1");
+            l1.innerHTML = xl1.toFixed(5)
+            xl2 = (X2 - XXX) * (X2 - XXX) + (Y2 - YYY) * (Y2 - YYY)
+            xl2 = Math.sqrt(xl2)
+            const l2 = document.getElementById("l2");
+            l2.innerHTML = xl2.toFixed(5)
+            const l3 = document.getElementById("l3");
+            l3.innerHTML = ((xl1 + xl2) / 2).toFixed(5)
         }
-        let m0 = Math.tan(a0*toRad) // Line 0: y = m0 (x - x0) + y0
-        let m1 = Math.tan(a1*toRad) // Line 1: y = m1 (x - x1) + y1
-        let x = ((m0 * x0 - m1 * x1) - (y0 - y1)) / (m0 - m1)
-        return [x, m0 * (x - x0) + y0]
-    }
 
-    function calculate(x1, y1, u1, x2, y2, u2)
-    {
-        X1=x1;
-        Y1=y1;
-        X2=x2;
-        Y2=y2;
-        tan1=u1;
-        tan2=u2;
-        tan1=tan1*0.017453;
-        tan1=Math.tan(tan1);
-        tan2=tan2*0.017453;
-        tan2=Math.tan(tan2);
-        XXX=(Y2-Y1+X1*tan1-X2*tan2)/(tan1-tan2);
-        console.log(`x = ${XXX.toFixed(5)}`);
-        YYY=Y1-X1*tan1+XXX*tan1;
-        console.log(`Y= ${YYY.toFixed(5)}`);
+        const [x, y] = xsect(x1, y1, angle1, x2, y2, angle2);
+        const xDiv = document.getElementById("x1");
+        xDiv.innerHTML = x.toFixed(5)
+        const yDiv = document.getElementById("y1");
+        yDiv.innerHTML = y.toFixed(5)
 
-        xl1=(X1-XXX)*(X1-XXX)+(Y1-YYY)*(Y1-YYY)
-        xl1=Math.sqrt(xl1)
-        l1.innerHTML=xl1.toFixed(5)
-        xl2=(X2-XXX)*(X2-XXX)+(Y2-YYY)*(Y2-YYY)
-        xl2=Math.sqrt(xl2)
-        l2.innerHTML=xl2.toFixed(5)
-        l3.innerHTML=((xl1+xl2)/2).toFixed(5)
+        calculate(x1, y1, angle1, x2, y2, angle2);
+    });
 
-    }
-    console.log(xsect(x1, y1, angle1, x2, y2, angle2))
-    calculate(x1, y1, angle1, x2, y2, angle2);
 </script>
 <body>
-    <div id="xn"></div>
-    <div id="yn"></div>
-    <div id="l1"></div>
-    <div id="l2"></div>
-    <div id="l3"></div>
+<h1>Первый вариант</h1>
+<div id="x1"></div>
+<div id="y1"></div>
+
+<h1>Второй вариант</h1>
+<div id="x2"></div>
+<div id="y2"></div>
+
+<h1>Отладочная для второго варианта</h1>
+<div id="l1"></div>
+<div id="l2"></div>
+<div id="l3"></div>
 </body>
 </html>
 
