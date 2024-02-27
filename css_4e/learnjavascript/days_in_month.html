@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function daysInMonth(year, month) {
+        return 33 - new Date(year, month, 33).getDate();
+    }
+
+    function print() {
+        console.log(' daysInMonth(2024, 0) -> ' +  daysInMonth(2024, 0))
+        console.log(' daysInMonth(2024, 1) -> ' +  daysInMonth(2024, 1))
+        console.log(' daysInMonth(2023, 1) -> ' +  daysInMonth(2023, 1))
+        console.log(' daysInMonth(2024, 12) -> ' +  daysInMonth(2024, 12))
+    }
+
+    print();
+
+</script>
+<body>
+
+</body>
+</html>
