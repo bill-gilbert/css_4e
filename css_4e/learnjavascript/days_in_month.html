@@ -9,11 +9,25 @@
         return 33 - new Date(year, month, 33).getDate();
     }
 
+    Date.prototype.dateStructure = function () {
+        const currentDate = new Date();
+        return {
+            day: currentDate.getUTCDate(),
+            month: currentDate.getUTCMonth() + 1,
+            year: currentDate.getFullYear(),
+        };
+    };
+
     function print() {
-        console.log(' daysInMonth(2024, 0) -> ' +  daysInMonth(2024, 0))
-        console.log(' daysInMonth(2024, 1) -> ' +  daysInMonth(2024, 1))
-        console.log(' daysInMonth(2023, 1) -> ' +  daysInMonth(2023, 1))
-        console.log(' daysInMonth(2024, 12) -> ' +  daysInMonth(2024, 12))
+        console.log(' daysInMonth(2024, 0) -> ' + daysInMonth(2024, 0))
+        console.log(' daysInMonth(2024, 1) -> ' + daysInMonth(2024, 1))
+        console.log(' daysInMonth(2023, 1) -> ' + daysInMonth(2023, 1))
+        console.log(' daysInMonth(2024, 12) -> ' + daysInMonth(2024, 12))
+
+        const currentDate = new Date();
+        console.log(`${currentDate.getUTCDate()} ${currentDate.getUTCMonth() + 1} ${currentDate.getFullYear()}`)
+        const date = new Date().dateStructure();
+        console.log(`new structure day:${date.day} month:${date.month} year:${date.year}`)
     }
 
     print();
